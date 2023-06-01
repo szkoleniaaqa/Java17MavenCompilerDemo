@@ -1,8 +1,9 @@
-package pl.akademiaqa.tests;
+package pl.akademiaqa.ui.tests;
 
 import org.junit.jupiter.api.Test;
+import pl.akademiaqa.common.BaseUiTest;
 
-public class ThirdTest extends BaseTest {
+public class ThirdTest extends BaseUiTest {
 
     @Test
     void sample13Test() {
