@@ -28,9 +28,10 @@ public class LoginWithValidCredentialsTest extends BaseUiTest {
 
     @Test
     void should_login_with_valid_credentials_2() {
-        Path path = Paths.get("screenshots/login.png");
+        Path path = Paths.get("screenshots/login_element.png");
         Locator form_authentication = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Form Authentication"));
         form_authentication.screenshot(new Locator.ScreenshotOptions().setPath(path));
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshots/page_element.png")));
         form_authentication.click();
 
         page.getByLabel("Username").fill("tomsmith");

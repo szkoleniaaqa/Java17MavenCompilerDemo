@@ -39,6 +39,7 @@ public class BaseUiTest {
         }
         page = context.newPage();
         page.setViewportSize(1920, 1080);
+//        page.route("**/*.{png,jpg,jpeg,svg}", route -> route.abort());
         page.navigate(Properties.getProperty("app.ui.url"));
 //        page.pause();
     }
