@@ -1,4 +1,4 @@
-package pl.akademiaqa.tests.modul_3;
+package pl.akademiaqa.tests.base;
 
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;

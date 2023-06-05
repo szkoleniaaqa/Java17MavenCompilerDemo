@@ -1,15 +1,8 @@
 package pl.akademiaqa.tests.modul_3;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
+import pl.akademiaqa.tests.base.BaseTest;
 
 class FirstTest extends BaseTest {
 
