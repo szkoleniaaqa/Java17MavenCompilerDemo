@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import pl.akademiaqa.tests.base.BaseTest;
 
 import java.nio.file.Paths;
+import java.util.List;
 
 class _13Practice7Test extends BaseTest {
 
@@ -32,7 +33,7 @@ class _13Practice7Test extends BaseTest {
     @Test
     void should_fill_and_send_contact_us_form() {
         page.navigate("http://www.automationpractice.pl/");
-        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Contact us")).click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Contact us"));
         page.selectOption("#id_contact", "Webmaster");
         page.getByLabel("Email address").fill("demo@demo.com");
         page.locator("#id_order").fill("12345");
