@@ -1,13 +1,12 @@
 package pl.akademiaqa.tests.modul_8;
 
 import com.github.javafaker.Faker;
-import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.akademiaqa.tests.base.BaseTest;
 import pl.akademiaqa.tests.modul_8.pages.CreateAnAccountPage;
 import pl.akademiaqa.tests.modul_8.pages.HomePage;
-import pl.akademiaqa.tests.modul_8.pages.components.CreateAnAccountFormComponent;
+import pl.akademiaqa.tests.modul_8.pages.sections.CreateAnAccountFormSection;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.*;
 
@@ -25,19 +24,18 @@ class CreateAnAccountTest extends BaseTest {
 
     @Test
     void should_create_new_account() {
-        CreateAnAccountPage createAnAccountPage = homePage.getTopMenuComponent().clickSignInLink();
+        CreateAnAccountPage createAnAccountPage = homePage.getTopMenuSection().clickSignInLink();
 
-        CreateAnAccountFormComponent accountForm = createAnAccountPage.getCreateAnAccountFormComponent();
-        assertThat(accountForm.getLocators().createAnAccountForm1()).isVisible();
-        accountForm.enterEmail(faker.internet().emailAddress());
-        accountForm.clickCreateAnAccountButton();
-        assertThat(accountForm.getLocators().createAnAccountForm2()).isVisible();
+        createAnAccountPage.getCreateAnAccountFormSection()
+                .enterEmail(faker.internet().emailAddress())
+                .clickCreateAnAccountButton();
 
-        accountForm.checkGenderMr()
+        createAnAccountPage.getCreateAnAccountFormSection()
+                .checkGenderMr()
                 .enterFirstName("Janek")
                 .enterLastName("Kowalski")
                 .enterPassword("123456")
-                .setDateOfBirth("6","6", "2000")
+                .setDateOfBirth("6", "6", "2000")
                 .clickRegisterButton();
 
         assertThat(page.getByText("Your account has been created.")).isVisible();

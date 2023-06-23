@@ -13,15 +13,9 @@ class ContactUsFormTest extends BaseTest {
 
     private HomePage homePage;
 
-//    private TopMenuComponent topMenuBarPage;
-//    private ContactUsFormPage contactUsFormPage;
-
     @BeforeEach
     void beforeEach() {
         homePage = new HomePage(page);
-//        topMenuBarPage = new TopMenuComponent(page);
-//        contactUsFormPage = new ContactUsFormPage(page);
-
         page.navigate("http://www.automationpractice.pl/");
     }
 
@@ -35,9 +29,9 @@ class ContactUsFormTest extends BaseTest {
     // PRZEROBIONY
     @Test
     void should_show_an_error_when_trying_to_send_empty_form() {
-        ContactUsPage contactUsPage = homePage.getTopMenuComponent().clickContactUsLink();
-        contactUsPage.getContactUsFormComponent().clickSendMessageButton();
-        assertThat(contactUsPage.getContactUsFormComponent().getLocators().errorMessage()).isVisible();
+        ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
+        contactUsPage.getContactUsFormSection().clickSendMessageButton();
+        assertThat(contactUsPage.getContactUsFormSection().getErrorMessage()).isVisible();
     }
 
 
@@ -64,8 +58,9 @@ class ContactUsFormTest extends BaseTest {
 
     @Test
     void should_fill_and_send_contact_us_form_1() {
-        ContactUsPage contactUsPage = homePage.getTopMenuComponent().clickContactUsLink();
-        contactUsPage.getContactUsFormComponent().sendContactUsForm(ContactUsDTO.getDefaultContactUsDTO());
-        assertThat(contactUsPage.getContactUsFormComponent().getLocators().confirmationMessage()).isVisible();
+        ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
+        contactUsPage.getContactUsFormSection().sendContactUsForm(ContactUsDTO.getDefaultContactUsDTO());
+
+        assertThat(contactUsPage.getContactUsFormSection().getConfirmationMessage()).isVisible();
     }
 }
