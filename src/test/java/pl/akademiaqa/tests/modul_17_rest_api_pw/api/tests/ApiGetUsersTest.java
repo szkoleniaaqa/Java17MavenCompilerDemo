@@ -1,4 +1,4 @@
-package pl.akademiaqa.api.tests;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.tests;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -9,8 +9,8 @@ import com.microsoft.playwright.options.RequestOptions;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pl.akademiaqa.api.payload.user.CreateUserPayload;
-import pl.akademiaqa.api.payload.user.CreateUserResponse;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.payload.user.CreateUserPayload;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.response.user.CreateUpdateUserResponse;
 import pl.akademiaqa.utils.Properties;
 
 import java.io.IOException;
@@ -53,6 +53,7 @@ class ApiGetUsersTest {
 
         APIResponse apiResponse = apiContext.get("users/10");
 
+        // TEXT
 //        System.out.println(apiResponse.text());
 //        System.out.println(Arrays.asList(apiResponse.body()));
 //        System.out.println(apiResponse.status());
@@ -64,7 +65,6 @@ class ApiGetUsersTest {
         PlaywrightAssertions.assertThat(apiResponse).isOK();
         Assertions.assertThat(apiResponse.status()).isEqualTo(200);
 
-        // TEXT
         // GSON - ZAMIANA ODPOWIEDZI NA JsonObject
 //        JsonObject jsonResponse = new Gson().fromJson(apiResponse.text(), JsonObject.class);
 //        System.out.println(jsonResponse.get("name"));
@@ -156,7 +156,7 @@ class ApiGetUsersTest {
         PlaywrightAssertions.assertThat(apiResponse).isOK();
         System.out.println(apiResponse.text());
 
-        CreateUserResponse createUserResponse = new Gson().fromJson(apiResponse.text(), CreateUserResponse.class);
+        CreateUpdateUserResponse createUserResponse = new Gson().fromJson(apiResponse.text(), CreateUpdateUserResponse.class);
         System.out.println(createUserResponse);
     }
 }

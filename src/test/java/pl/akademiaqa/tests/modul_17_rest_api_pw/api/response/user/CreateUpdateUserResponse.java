@@ -1,10 +1,10 @@
-package pl.akademiaqa.api.payload.user;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.response.user;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 
 @Getter
-public class CreateUserResponse {
+public class CreateUpdateUserResponse {
 
     private int id;
     private String name;
@@ -13,7 +13,7 @@ public class CreateUserResponse {
     private String email;
     private String website;
 
-    public CreateUserResponse(int id, String name, String userName, String email, String website) {
+    public CreateUpdateUserResponse(int id, String name, String userName, String email, String website) {
         this.id = id;
         this.name = name;
         this.userName = userName;

@@ -1,4 +1,4 @@
-package pl.akademiaqa.api.payload.post;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.payload.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

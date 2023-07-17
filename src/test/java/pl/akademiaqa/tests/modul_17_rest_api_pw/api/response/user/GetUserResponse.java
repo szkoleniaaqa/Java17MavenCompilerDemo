@@ -1,4 +1,4 @@
-package pl.akademiaqa.api.payload.user;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.response.user;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
@@ -10,17 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class CreateUserPayload {
+public class GetUserResponse {
+    private int id;
     private String name;
     @SerializedName("username")
     private String userName;
     private String email;
-
-    public static CreateUserPayload createDefaultPayload() {
-        return CreateUserPayload.builder()
-                .name("Joe Black")
-                .userName("jblack")
-                .email("default@email.com")
-                .build();
-    }
 }

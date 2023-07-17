@@ -1,4 +1,4 @@
-package pl.akademiaqa.api.tests;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.tests;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -6,8 +6,8 @@ import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.options.RequestOptions;
 import org.junit.jupiter.api.Test;
-import pl.akademiaqa.api.payload.post.CreatePostPayload;
-import pl.akademiaqa.api.payload.post.CreatePostResponse;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.payload.post.CreatePostPayload;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.payload.post.CreatePostResponse;
 import pl.akademiaqa.common.BaseApiTest;
 import pl.akademiaqa.utils.Properties;
 

@@ -1,4 +1,4 @@
-package pl.akademiaqa.api.tests;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.tests;
 
 import com.google.gson.Gson;
 import com.microsoft.playwright.APIResponse;
@@ -6,8 +6,8 @@ import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.options.RequestOptions;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.akademiaqa.api.payload.user.CreateUserPayload;
-import pl.akademiaqa.api.payload.user.CreateUserResponse;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.payload.user.CreateUserPayload;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.response.user.CreateUpdateUserResponse;
 import pl.akademiaqa.common.BaseApiTest;
 
 class UpdateUserTest extends BaseApiTest {
@@ -23,7 +23,7 @@ class UpdateUserTest extends BaseApiTest {
 
         PlaywrightAssertions.assertThat(createResponse).isOK();
         Assertions.assertThat(createResponse.status()).isEqualTo(201);
-        CreateUserResponse createUserResponse = new Gson().fromJson(createResponse.text(), CreateUserResponse.class);
+        CreateUpdateUserResponse createUserResponse = new Gson().fromJson(createResponse.text(), CreateUpdateUserResponse.class);
         Assertions.assertThat(createUserResponse.getId()).isNotNull();
 
         createUserPayload.setEmail("bartek@akademiaqa.pl");
@@ -36,7 +36,7 @@ class UpdateUserTest extends BaseApiTest {
         PlaywrightAssertions.assertThat(updateResponse).isOK();
         Assertions.assertThat(updateResponse.status()).isEqualTo(200);
 
-        CreateUserResponse updateUserResponse = new Gson().fromJson(updateResponse.text(), CreateUserResponse.class);
+        CreateUpdateUserResponse updateUserResponse = new Gson().fromJson(updateResponse.text(), CreateUpdateUserResponse.class);
         Assertions.assertThat(createUserPayload.getEmail()).isEqualTo(updateUserResponse.getEmail());
 
         System.out.println(updateResponse.text());

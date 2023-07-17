@@ -1,4 +1,4 @@
-package pl.akademiaqa.api.tests;
+package pl.akademiaqa.tests.modul_17_rest_api_pw.api.tests;
 
 import com.google.gson.Gson;
 import com.microsoft.playwright.APIResponse;
@@ -6,8 +6,8 @@ import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.options.RequestOptions;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.akademiaqa.api.payload.user.CreateUserPayload;
-import pl.akademiaqa.api.payload.user.CreateUserResponse;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.payload.user.CreateUserPayload;
+import pl.akademiaqa.tests.modul_17_rest_api_pw.api.response.user.CreateUpdateUserResponse;
 import pl.akademiaqa.common.BaseApiTest;
 
 public class CreateUserTest extends BaseApiTest {
@@ -33,7 +33,7 @@ public class CreateUserTest extends BaseApiTest {
         Assertions.assertThat(response.status()).isEqualTo(201);
 
         System.out.println(response.text());
-        CreateUserResponse createUserResponse = new Gson().fromJson(response.text(), CreateUserResponse.class);
+        CreateUpdateUserResponse createUserResponse = new Gson().fromJson(response.text(), CreateUpdateUserResponse.class);
         Assertions.assertThat(createUserPayload.getName()).isEqualTo(createUserResponse.getName());
         Assertions.assertThat(createUserResponse.getId()).isNotNull();
     }

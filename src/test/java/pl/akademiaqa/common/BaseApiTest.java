@@ -13,6 +13,8 @@ import java.util.Map;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BaseApiTest {
 
+    protected static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BaseApiTest.class);
+
     private Playwright playwright;
     private APIRequest request;
     protected APIRequestContext apiContext;
