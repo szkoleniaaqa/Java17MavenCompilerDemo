@@ -30,7 +30,7 @@ public class BaseTest {
         // BASIC AUTH
 //        browserContext = browser.newContext(new Browser.NewContextOptions().setHttpCredentials("admin", "admin"));
 
-        // TRACING START
+//         TRACING START
 //        browserContext.tracing().start(new Tracing.StartOptions()
 //                .setScreenshots(true)
 //                .setSnapshots(true)
